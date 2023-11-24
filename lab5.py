@@ -1,12 +1,12 @@
 """
-Програма реалізує вивід дерева файлів, найдовший шлях до файлу
-та викликає деструктори файлів і папок
+The program prints a file tree and the longest path, 
+creates a file system from subfolders and files
 """
 
 
 class File:
     """
-    Реалізує створення файлів
+    This class returns name, extension and size of a file and calls destructor 
     """
 
     def __init__(self, name="dsf", extension="png", size="234 mb"):
@@ -16,19 +16,19 @@ class File:
 
     def get_name(self):
         """
-        Дістає ім'я файлу
+        Method returns name of folder
         """
         return self.name
 
     def get_extension(self):
         """
-        Дістає розширення файлу
+        Method returns extension of file
         """
         return self.extension
 
     def get_size(self):
         """
-        Дістає розмір файлу
+        Method returns size of file
         """
         return self.size
 
@@ -41,8 +41,8 @@ class File:
 
 class Folder:
     """
-    Реалізує додавання файлів та папок, вивід дерева файлів та
-    знаходження найдовшого шляху
+    The class realises adding files and folders, outputting a file tree,
+    finding the longest path and calls destructor
     """
 
     def __init__(self, name):
@@ -51,13 +51,13 @@ class Folder:
 
     def get_name(self):
         """
-        Дістає назву папки
+        Method returns name of folder
         """
         return self.name
 
     def add(self, item):
         """
-        Додає файли або папки до папок
+        Method adds file to the folder and adds folder to the folder
         """
         self.path.append(item)
 
@@ -66,7 +66,7 @@ class Folder:
 
     def longest_path(self):
         """
-        Знаходить найдовший шлях та виводить його
+        Method finds the longest path to the file and prints it 
         """
         long_path = ""
         for item in self.path:
@@ -81,7 +81,7 @@ class Folder:
 
     def tree(self, indent=''):
         """
-        Виводить дерево файлів
+        Method prints file tree
         """
         print(indent + self.get_name() + "/")
         for item in self.path:
@@ -96,7 +96,8 @@ class Folder:
 
 def main():
     """
-    Ініціалізатор об'єктів та вивід введених значень
+    This method initializes the objects, outputs the input values ​​in 
+    a file tree format, and outputs the longest path to the file
     """
     folder_main = Folder("main")
 
@@ -139,7 +140,7 @@ def main():
     folder_python.add(folder_code)
     folder_code.add(file_lab_2_code)
 
-    folder_main.print_tree()
+    folder_main.tree()
 
     print(f'Найдовший шлях: {folder_main.longest_path()}')
 
