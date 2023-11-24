@@ -79,7 +79,7 @@ class Folder:
                     long_path = folder_path
         return long_path
 
-    def tree(self, indent=''):
+    def print_tree(self, indent=''):
         """
         Method prints file tree
         """
@@ -88,7 +88,7 @@ class Folder:
             if isinstance(item, File):
                 print(indent + "    " + str(item))
             elif isinstance(item, Folder):
-                item.tree(indent + "    ")
+                item.print_tree(indent + "    ")
 
     def __del__(self):
         return f"Папку {self.get_name()} було видалено"
@@ -140,7 +140,7 @@ def main():
     folder_python.add(folder_code)
     folder_code.add(file_lab_2_code)
 
-    folder_main.tree()
+    folder_main.print_tree()
 
     print(f'Найдовший шлях: {folder_main.longest_path()}')
 
