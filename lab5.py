@@ -98,50 +98,50 @@ def main():
     """
     Ініціалізатор об'єктів та вивід введених значень
     """
-    folder1 = Folder("main")
+    folder_main = Folder("main")
 
-    folder2 = Folder("Projects")
-    file1 = File("Car", 'png', '657 mb')
+    folder_projects = Folder("Projects")
+    file_car = File("Car", 'png', '657 mb')
 
-    folder3 = Folder("Hw")
-    folder5 = Folder('Math')
-    file4 = File('1', 'pdf', '50 mb')
-    file6 = File('Bio', 'txt', '40 mb')
+    folder_hw = Folder("Hw")
+    folder_math = Folder('Math')
+    file_1 = File('1', 'pdf', '50 mb')
+    file_bio = File('Bio', 'txt', '40 mb')
 
-    folder4 = Folder('Labs')
-    folder6 = Folder('lab1')
-    folder8 = Folder('Physics')
-    file8 = File('1', 'png', '20mb')
-    folder7 = Folder('lab2')
-    folder9 = Folder('Python')
-    folder11 = Folder('code')
-    file13 = File('lab2_code', 'py', '2 mb')
+    folder_labs = Folder('Labs')
+    folder_lab_1 = Folder('lab1')
+    folder_physics = Folder('Physics')
+    file_graphics = File('Graphics', 'png', '20mb')
+    folder_lab_2 = Folder('lab2')
+    folder_python = Folder('Python')
+    folder_code = Folder('code')
+    file_lab_2_code = File('lab2_code', 'py', '2 mb')
 
-    folder1.add(folder2)
-    folder2.add(file1)
+    folder_main.add(folder_projects)
+    folder_projects.add(file_car)
 
-    folder1.add(folder3)
-    folder3.add(file6)
+    folder_main.add(folder_hw)
+    folder_hw.add(file_bio)
 
-    folder3.add(folder5)
-    folder5.add(file4)
+    folder_hw.add(folder_math)
+    folder_math.add(file_1)
 
-    folder1.add(folder4)
+    folder_main.add(folder_labs)
 
-    folder4.add(folder6)
-    folder6.add(folder8)
-    folder8.add(file8)
+    folder_labs.add(folder_lab_1)
+    folder_lab_1.add(folder_physics)
+    folder_physics.add(file_graphics)
 
-    folder4.add(folder7)
+    folder_labs.add(folder_lab_2)
 
-    folder7.add(folder9)
+    folder_lab_2.add(folder_python)
 
-    folder9.add(folder11)
-    folder11.add(file13)
+    folder_python.add(folder_code)
+    folder_code.add(file_lab_2_code)
 
-    folder1.tree()
+    folder_main.print_tree()
 
-    print(f'Найдовший шлях: {folder1.longest_path()}')
+    print(f'Найдовший шлях: {folder_main.longest_path()}')
 
 
 main()
